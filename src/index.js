@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+// Import Global Components
+import Header from './common/Header'
+import Footer from './common/Footer'
+import App from './App'
+
+// Import Global SCSS
+import './scss/style-style-main.scss'
+
+// Import Router
+import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div className="portfolio">
+    <Router>
+      <Header />
+
+      <div className="main-content">
+        <App />
+      </div>
+
+      <Footer />
+    </Router>
+  </div>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
