@@ -28,7 +28,7 @@ function Home() {
         <div className="hero-text">
           <h1>Greetings</h1>
           <p>My Name is Joseph</p>
-          <p>I'm <b>{'{'} {wordList[wordCount]} {'}'}</b></p>
+          <p>I'm <b>{`{ ${wordList[wordCount]} }`}</b></p>
         </div>
       </div>
     </div>
