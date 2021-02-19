@@ -12,17 +12,23 @@ import './scss/style-style-main.scss'
 // Import Router
 import { BrowserRouter as Router } from 'react-router-dom'
 
+// Import Redux Store
+import { Provider } from 'react-redux'
+import store from './store/index'
+
 ReactDOM.render(
   <div className="portfolio">
-    <Router>
-      <Header />
+    <Provider store={store}>
+      <Router>
+        <Header />
 
-      <div className="main-content">
-        <App />
-      </div>
+        <div className="main-content">
+          <App />
+        </div>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </Provider>
   </div>,
   document.getElementById('root')
 );
