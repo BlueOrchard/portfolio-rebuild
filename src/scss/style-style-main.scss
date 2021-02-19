@@ -1,3 +1,6 @@
+// Import Font
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
 /* Global Variables */
 @import "prefab/global-variables";
 
@@ -12,10 +15,19 @@ html {
     box-sizing: inherit;
 }
 
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
 // siteWidth mixin is in prefabs
 .widthHolder{
     @include siteWidth;
 }
+
+// Color variables
+@import "import/colors";
 
 /* Typography: Handles the way fonts look. Also handles bottom margin of text. */
 @import "import/style-typography";

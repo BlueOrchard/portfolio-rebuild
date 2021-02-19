@@ -3,24 +3,42 @@
     position: relative;
 } */
 
-.site-header{
+.header{
     padding: 10px;
-    border-bottom: 1px solid $borderColor;
+    background: $lightBlue-600;
+    border-bottom: 5px solid $lightBlue-800;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo{
+        font-weight: 400;
+        color: $lightBlue-50;
+        line-height: 1;
+        font-size: 1.3rem;
+
+        .smaller{
+            font-size: 0.7rem;
+        }
+    }
 
     //Uncomment if header needs to be on top of splash
     //@include floatingHeader
 }
 
-.main-navigation{
-    ul{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        list-style: none;
-    }
+.nav-links{
+    display: flex;
+    justify-content: flex-end;
 
     a{
-        display: block;
+        color: $lightBlue-50;
+        margin: 0 10px;
         padding: 5px 10px;
+        border-radius: 5px;
+        transition: 0.25s all;
+
+        &:hover{
+            background: $lightBlue-700;
+        }
     }
 }

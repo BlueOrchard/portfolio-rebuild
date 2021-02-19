@@ -1,6 +1,22 @@
-.site-footer{
-    padding: 10px;
-    border-top: 1px solid $borderColor;
+.footer{
+    .top-footer{
+        background: $gray-700;
+        padding: 20px;
+        color: $gray-50;
+    }
+
+    .bottom-footer{
+        background: $gray-800;
+        padding: 10px;
+    }
+
+    .nav-links{
+        a{
+            &:hover{
+                background: $gray-900;
+            }
+        }
+    }
 }
 
 .konami{
