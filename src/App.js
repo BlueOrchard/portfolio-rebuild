@@ -12,7 +12,17 @@ import Page404 from './routes/404/404'
 import PortolioMain from './routes/portfolio/PortfolioMain'
 import Contact from './routes/contact/Contact'
 
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchTagsAsyncGet } from './store/actions'
+
 function App(){
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchTagsAsyncGet())
+    }, [dispatch])
+
     return (
         <Switch>
             <Route exact path="/">

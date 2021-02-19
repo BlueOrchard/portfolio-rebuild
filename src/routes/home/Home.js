@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import background from './placeholder.jpg'
+import background from './heroimg.jpg'
 
 function Home() {
   const [wordCount, setWordCount] = useState(0);
@@ -16,7 +16,7 @@ function Home() {
           return wordCount + 1
         }
       })
-    }, 1000);
+    }, 500);
     return () => clearInterval(interval);
   })
 
