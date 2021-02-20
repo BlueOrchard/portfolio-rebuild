@@ -15,7 +15,7 @@ function PortfolioFilterOptions(){
             <div className="filter-container">
                 {portfolioTags.map((tag) => (
                     // Slight copy of Tag.js, but needed for more extensibility and 
-                    // performance reasons (no need to filter array)
+                    // for performance reasons (no need to filter array)
                     <div key={tag.tagID} className="single-tag-filter">
                         <div className="single-tag">
                             {tag.name}
