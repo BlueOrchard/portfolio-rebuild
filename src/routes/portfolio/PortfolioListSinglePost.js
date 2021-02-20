@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
 import Tag from '../../common/Tag'
 
@@ -18,7 +19,9 @@ function SinglePost(props){
     return(
         <Link to={"/portfolio/" + singlePost.slug} className="single-post">
             <div className="thumbnail">
-                <img src={media} />
+                <LazyLoadImage 
+                    src={media}
+                    effect="opacity" />
             </div>
             <div className="title">
                 <h3>{singlePost.title.rendered}</h3>
