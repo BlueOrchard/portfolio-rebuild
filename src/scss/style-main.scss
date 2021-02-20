@@ -1,11 +1,11 @@
 // Import Font
 // @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
+// Added Normalize
+@import "extra/style-normalize.css";
+
 /* Global Variables */
 @import "prefab/global-variables";
-
-/* Prefabricated CSS. Classes are based on consistent use. */
-@import "prefab/style-prefabs";
 
 /* Border Box Box Sizing */
 html {
@@ -21,13 +21,8 @@ body{
     font-size: 13px;
 }
 
-// siteWidth mixin is in prefabs
-.widthHolder{
-    @include siteWidth;
-}
-
 // Color variables
-@import "import/colors";
+@import "prefab/colors";
 
 /* Typography: Handles the way fonts look. Also handles bottom margin of text. */
 @import "import/style-typography";
@@ -41,22 +36,5 @@ body{
 /* Footer CSS */
 @import "import/style-footer";
 
-/* Landing Page Template */
-@import "prefab/style-landing-page";
-
-/* Reset CSS for Posts */
-@import "import/style-resets";
-
-/* Custom Toast Plugin CSS */
-@import "extra/toast";
-
-/* Slick Slider CSS. Be sure to uncomment this and the enqueue script + style in functions.php */
-//@import "extra/slick";
-//@import "extra/slick-theme";
-
-/* Large Desktop Overrides */
-@import "import/style-large-desktop";
-
 /* Mobile CSS */
-@import "prefab/style-mobile-nav";
 @import "import/style-mobile";

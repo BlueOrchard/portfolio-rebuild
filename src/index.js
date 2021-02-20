@@ -7,7 +7,7 @@ import Footer from './common/Footer'
 import App from './App'
 
 // Import Global SCSS
-import './scss/style-style-main.scss'
+import './scss/style-main.scss'
 
 // Import Router
 import { BrowserRouter as Router } from 'react-router-dom'
