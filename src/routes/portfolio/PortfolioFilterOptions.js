@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 function PortfolioFilterOptions(){
     const dispatch = useDispatch()
-    const portfolioTags = useSelector(state => state.portfolioTags.tags)
+    const portfolioTags = useSelector(state => state.portfolioCatalog.tags)
 
     useEffect(() => {
         

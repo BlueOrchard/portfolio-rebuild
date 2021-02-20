@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import portfolioListings from './portfolioListings'
-import portfolioTags from './portfolioTags'
+import portfolioCatalog from './portfolioCatalog/index'
 
 export default combineReducers({ 
-    portfolioListings,
-    portfolioTags
+    portfolioCatalog
 })

@@ -7,7 +7,7 @@ import SinglePost from './PortfolioListSinglePost'
 
 function PortfolioList(){
     const dispatch = useDispatch()
-    const posts = useSelector(state => state.portfolioListings.filteredPosts)
+    const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
 
     useEffect(() => {
         dispatch(fetchPostsAsyncGet())

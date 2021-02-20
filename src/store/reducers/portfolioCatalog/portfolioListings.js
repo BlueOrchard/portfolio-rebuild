@@ -1,11 +1,6 @@
-import { FETCH_POSTS } from '../actionTypes'
+import { FETCH_POSTS } from '../../actionTypes'
 
-const initialState = {
-    posts: [],
-    filteredPosts: []
-}
-
-const portfolioListings = (state = initialState, action) => {
+const portfolioListings = (state, action) => {
     switch(action.type){
         // Map initial state to the posts
         case FETCH_POSTS: {
@@ -21,4 +16,4 @@ const portfolioListings = (state = initialState, action) => {
     }
 }
 
-export default portfolioListings;
+export default portfolioListings

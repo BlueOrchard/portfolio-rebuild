@@ -1,11 +1,6 @@
-import { FETCH_TAGS } from '../actionTypes'
+import { FETCH_TAGS } from '../../actionTypes'
 
-const initialState = {
-    tags: [],
-    selectedTags: []
-}
-
-const portfolioTags = (state = initialState, action) => {
+const portfolioTags = (state, action) => {
     switch (action.type) {
         case FETCH_TAGS:
             return {

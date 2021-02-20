@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 function Tag(props){
     const tagPropID = props.tagID
-    const portfolioTags = useSelector(state => state.portfolioTags.tags)
+    const portfolioTags = useSelector(state => state.portfolioCatalog.tags)
     const [tagData, setTagData] = useState([])
 
     useEffect(() => {
