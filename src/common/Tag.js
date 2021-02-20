@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 
 function Tag(props){
     const tagPropID = props.tagID
-    const state = useSelector(state => state.portfolioTags)
+    const portfolioTags = useSelector(state => state.portfolioTags.tags)
     const [tagData, setTagData] = useState([])
 
     useEffect(() => {
-        setTagData(state.filter(tag => {
+        setTagData(portfolioTags.filter(tag => {
             return tag.tagID === tagPropID
         }))
     }, [])

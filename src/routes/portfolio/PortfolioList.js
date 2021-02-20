@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPostsAsyncGet } from '../../store/actions'
+import PortfolioFilterOptions from './PortfolioFilterOptions'
 
 import SinglePost from './PortfolioListSinglePost'
 
@@ -15,7 +16,7 @@ function PortfolioList(){
     return (
         <div className="page-component portfolio-list">
             <div className="filter-options">
-                Filters
+                <PortfolioFilterOptions />
             </div>
             <div className="all-posts">
                 {posts.map(post => (

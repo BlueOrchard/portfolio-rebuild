@@ -47,6 +47,8 @@
 .portfolio-list{
     display: grid;
     grid-template-columns: 300px auto;
+    column-gap: 20px;
+    padding: 20px;
 }
 
 .filter-options{
@@ -54,7 +56,6 @@
 }
 
 .all-posts{
-    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
@@ -143,6 +144,29 @@
 
     .single-tag{
         display: block;
+    }
+}
+
+.filter-options{
+    h3{
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+    .filter-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .single-tag-filter{
+        @extend .inner-tag;
+        background: $lightBlue-400;
+        transition: 0.25s all;
+        cursor: pointer;
+
+        &:hover{
+            background: $lightBlue-600;
+        }
     }
 }
 
