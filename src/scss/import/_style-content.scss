@@ -150,12 +150,14 @@
 .filter-options{
     h3{
         font-weight: 500;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .filter-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px
     }
 
     .single-tag-filter{
@@ -163,13 +165,40 @@
         background: $lightBlue-400;
         transition: 0.25s all;
         cursor: pointer;
+        margin: 0;
 
         &.selected{
             background: $lightBlue-600;
+            padding-left: 20px;
+
+            &:hover{
+                padding-left: 20px;
+            }
         }
 
         &:hover{
             background: $lightBlue-600;
+            padding-left: 15px;
+        }
+    }
+    
+    .reset-filter{
+        background: $gray-100;
+        text-align: center;
+        grid-column: span 2;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: 0.25s all;
+
+        &:hover{
+            background: $gray-200;
+
+            i{
+                animation: 1s linear infinite rotate360negative;
+            }
         }
     }
 }
@@ -180,6 +209,15 @@
     }
     100%{
         transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate360negative{
+    0%{
+        transform: rotate(360deg)
+    }
+    100%{
+        transform: rotate(0deg)
     }
 }
 

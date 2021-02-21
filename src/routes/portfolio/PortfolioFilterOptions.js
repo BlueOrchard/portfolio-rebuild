@@ -38,7 +38,7 @@ function PortfolioFilterOptions(){
                 ))}
                 <div 
                     onClick={() => resetFilter()}
-                    className="resetFilter">
+                    className="reset-filter">
                     <i className="fas fa-undo"></i> Reset Filter
                 </div>
             </div>
