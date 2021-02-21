@@ -201,7 +201,7 @@
             }
         }
 
-        &.javascript, &.jquery, &.json-api{
+        &.javascript, &.jquery, &.json-api, &.ajax{
             &:before{
                 content: "\f3b8";
             }
