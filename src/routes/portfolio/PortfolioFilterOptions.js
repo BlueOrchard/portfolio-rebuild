@@ -27,11 +27,10 @@ function PortfolioFilterOptions(){
                     <div 
                         onClick={() => filterPosts(tag.tagID)} 
                         key={tag.tagID} 
-                        className={"single-tag-filter " + 
-                                (selectedTags.includes(tag.tagID) ? "selected" : "") 
-                            }
-                        >
-                        <div className="single-tag">
+                        className="single-tag-filter">
+                        <div className={"single-tag " + 
+                            (selectedTags.includes(tag.tagID) ? "selected" : "") 
+                        }>
                             {tag.name}
                         </div>
                     </div>

@@ -15,7 +15,7 @@ function Tag(props){
     return(
         <div className="inner-tag">
             { tagData.map(tag => (
-                <div key={tag.tagID} className="single-tag">
+                <div key={tag.tagID} className={"single-tag " + tag.slug}>
                     {tag.name}
                 </div>
             )) }

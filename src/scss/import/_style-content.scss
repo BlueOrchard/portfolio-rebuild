@@ -157,22 +157,109 @@
             flex-wrap: wrap;
             align-items: flex-start;
             margin-top: 10px;
+            border-top: 1px dotted $gray-300;
+            padding-top: 10px;
         }
     }
 }
 
 .inner-tag{
-    background: $lightBlue-500;
-    border: 1px solid $lightBlue-600;
-    color: #FFF;
-    line-height: 1;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    padding: 2px 10px;
-    margin: 0 5px 5px 0;
-
     .single-tag{
-        display: block;
+        // background: $lightBlue-500;
+        // border: 1px solid $lightBlue-600;
+        // color: #FFF;
+        background: $gray-200;
+        color: $gray-400;
+        line-height: 1;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        margin: 0 5px 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 10px;
+
+        &:before{
+            font-family: "Font Awesome 5 Brands"; 
+            font-weight: 900;
+            font-style: normal;
+            text-rendering: auto;
+            display: block;
+            margin-right: 5px;
+            font-variant: normal;
+        }
+
+        &.css{
+            &:before{
+                content: "\f13c";
+            }
+        }
+
+        &.html{
+            &:before{
+                content: "\f13b";
+            }
+        }
+
+        &.javascript, &.jquery, &.json-api{
+            &:before{
+                content: "\f3b8";
+            }
+        }
+
+        &.php{
+            &:before{
+                content: "\f457"
+            }
+        }
+
+        &.react{
+            &:before{
+                content: "\f41b"
+            }
+        }
+
+        &.wordpress, &.woocommerce{
+            &:before{
+                content: "\f411"
+            }
+        }
+
+        &.android{
+            &:before{
+                content: "\f17b"
+            }
+        }
+
+        &.java{
+            &:before{
+                content: "\f4e4";
+            }
+        }
+
+        &.unity{
+            &:before{
+                content: "\e049"
+            }
+        }
+
+        &.python{
+            &:before{
+                content: "\f3e2"
+            }
+        }
+
+        &.node-js{
+            &:before{
+                content: "\f3d3"
+            }
+        }
+
+        &.c{
+            &:before{
+                content: "\f17a";
+            }
+        }
     }
 }
 
@@ -191,26 +278,31 @@
 
     .single-tag-filter{
         @extend .inner-tag;
-        background: $lightBlue-400;
-        transition: 0.25s all;
-        cursor: pointer;
-        margin: 0;
-        border: 1px solid $lightBlue-500;
+        
+        .single-tag{
+            justify-content: flex-start;
+            background: $lightBlue-400;
+            transition: 0.25s all;
+            cursor: pointer;
+            margin: 0;
+            border: 1px solid $lightBlue-500;
+            color: $gray-50;
 
-        &.selected{
-            background: $lightBlue-600;
-            border: 1px solid $lightBlue-600;
-            padding-left: 20px;
+            &.selected{
+                background: $lightBlue-600;
+                border: 1px solid $lightBlue-600;
+                padding-left: 20px;
+    
+                &:hover{
+                    padding-left: 20px;
+                }
+            }
 
             &:hover{
-                padding-left: 20px;
+                background: $lightBlue-600;
+                border: 1px solid $lightBlue-600;
+                padding-left: 15px;
             }
-        }
-
-        &:hover{
-            background: $lightBlue-600;
-            border: 1px solid $lightBlue-600;
-            padding-left: 15px;
         }
     }
     
