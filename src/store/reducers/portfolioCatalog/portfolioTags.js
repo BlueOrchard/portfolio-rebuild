@@ -1,4 +1,4 @@
-import { FETCH_TAGS } from '../../actionTypes'
+import { FETCH_TAGS, SELECT_FILTER } from '../../actionTypes'
 
 const portfolioTags = (state, action) => {
     switch (action.type) {
@@ -12,6 +12,22 @@ const portfolioTags = (state, action) => {
                         "slug" : tag.slug
                     }
                 })
+            }
+        case SELECT_FILTER:
+            const tagID = action.payload.data
+            let tagArray = [ ...state.selectedTags]
+
+            if(tagArray.includes(tagID)){
+                tagArray = tagArray.filter((tag) => {
+                    return tag !== tagID
+                })
+            } else {
+                tagArray.push(tagID)
+            }
+
+            return {
+                ...state,
+                selectedTags: tagArray
             }
         default:
             return state

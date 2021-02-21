@@ -1,13 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { useEffect } from 'react'
+import { selectAndFilterListings } from '../../store/actions'
 
 function PortfolioFilterOptions(){
     const dispatch = useDispatch()
     const portfolioTags = useSelector(state => state.portfolioCatalog.tags)
+    const selectedTags = useSelector(state => state.portfolioCatalog.selectedTags)
 
-    useEffect(() => {
-        
-    }, [])
+    // Fires redux function to select filters and also filter the listings
+    function filterPosts(ID){
+        dispatch(selectAndFilterListings(ID))
+    }
 
     return (
         <div className="filter-options">
@@ -16,7 +19,13 @@ function PortfolioFilterOptions(){
                 {portfolioTags.map((tag) => (
                     // Slight copy of Tag.js, but needed for more extensibility and 
                     // for performance reasons (no need to filter array)
-                    <div key={tag.tagID} className="single-tag-filter">
+                    <div 
+                        onClick={() => filterPosts(tag.tagID)} 
+                        key={tag.tagID} 
+                        className={"single-tag-filter " + 
+                                (selectedTags.includes(tag.tagID) ? "selected" : "") 
+                            }
+                        >
                         <div className="single-tag">
                             {tag.name}
                         </div>

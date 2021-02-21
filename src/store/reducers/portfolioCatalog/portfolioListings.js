@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from '../../actionTypes'
+import { FETCH_POSTS, FILTER_POSTS } from '../../actionTypes'
 
 const portfolioListings = (state, action) => {
     switch(action.type){
@@ -8,6 +8,19 @@ const portfolioListings = (state, action) => {
                 ...state,
                 posts: action.payload.data,
                 filteredPosts: action.payload.data
+            }
+        }
+        case FILTER_POSTS: {
+            let filteredPostsLocal = state.posts
+            let tagFilter = state.selectedTags
+
+            filteredPostsLocal = filteredPostsLocal.filter((post) => {
+                return tagFilter.every(v => post.tags.includes(v))
+            })
+
+            return {
+                ...state,
+                filteredPosts: filteredPostsLocal
             }
         }
         default: {

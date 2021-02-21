@@ -164,6 +164,10 @@
         transition: 0.25s all;
         cursor: pointer;
 
+        &.selected{
+            background: $lightBlue-600;
+        }
+
         &:hover{
             background: $lightBlue-600;
         }
