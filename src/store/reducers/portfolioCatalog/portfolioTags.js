@@ -1,4 +1,4 @@
-import { FETCH_TAGS, SELECT_FILTER } from '../../actionTypes'
+import { FETCH_TAGS, RESET_FILTER, SELECT_FILTER } from '../../actionTypes'
 
 const portfolioTags = (state, action) => {
     switch (action.type) {
@@ -13,6 +13,7 @@ const portfolioTags = (state, action) => {
                     }
                 })
             }
+        // Actual filtering happens in portfolioListings.js reducer
         case SELECT_FILTER:
             const tagID = action.payload.data
             let tagArray = [ ...state.selectedTags]
@@ -28,6 +29,11 @@ const portfolioTags = (state, action) => {
             return {
                 ...state,
                 selectedTags: tagArray
+            }
+        case RESET_FILTER:
+            return {
+                ...state,
+                selectedTags: []
             }
         default:
             return state

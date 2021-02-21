@@ -10,9 +10,10 @@ const portfolioListings = (state, action) => {
                 filteredPosts: action.payload.data
             }
         }
+        // Filter is selected in portfolioTags.js reducer
         case FILTER_POSTS: {
             let filteredPostsLocal = state.posts
-            let tagFilter = state.selectedTags
+            const tagFilter = state.selectedTags
 
             filteredPostsLocal = filteredPostsLocal.filter((post) => {
                 return tagFilter.every(v => post.tags.includes(v))

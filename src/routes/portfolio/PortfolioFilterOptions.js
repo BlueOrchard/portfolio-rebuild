@@ -1,6 +1,6 @@
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { useEffect } from 'react'
-import { selectAndFilterListings } from '../../store/actions'
+import { selectAndFilterListings, resetFilterAndListings } from '../../store/actions'
 
 function PortfolioFilterOptions(){
     const dispatch = useDispatch()
@@ -10,6 +10,11 @@ function PortfolioFilterOptions(){
     // Fires redux function to select filters and also filter the listings
     function filterPosts(ID){
         dispatch(selectAndFilterListings(ID))
+    }
+
+    // Fires redux function to reset filters
+    function resetFilter(){
+        dispatch(resetFilterAndListings())
     }
 
     return (
@@ -31,6 +36,11 @@ function PortfolioFilterOptions(){
                         </div>
                     </div>
                 ))}
+                <div 
+                    onClick={() => resetFilter()}
+                    className="resetFilter">
+                    <i className="fas fa-undo"></i> Reset Filter
+                </div>
             </div>
         </div>
     )

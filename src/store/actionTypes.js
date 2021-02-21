@@ -4,3 +4,4 @@ export const FETCH_SINGLE = "FETCH_SINGLE"
 
 export const SELECT_FILTER = "SELECT_FILTER"
 export const FILTER_POSTS = "FILTER_POSTS"
+export const RESET_FILTER = "RESET_FILTER"

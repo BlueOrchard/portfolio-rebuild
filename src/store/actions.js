@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_TAGS, FILTER_POSTS, SELECT_FILTER } from './actionTypes'
+import { FETCH_POSTS, FETCH_TAGS, FILTER_POSTS, RESET_FILTER, SELECT_FILTER } from './actionTypes'
 import axios from 'axios'
 
 // Initial fetch for listings
@@ -55,3 +55,17 @@ export const selectAndFilterListings = data => {
     }
 }
 // end Filter listings based on tags
+
+// Reset filter listings
+export const resetFilter = () => ({
+    type: RESET_FILTER
+})
+
+export const resetFilterAndListings = () => {
+    return function(dispatch){
+        // Calls filterListings from above code block
+        dispatch(resetFilter())
+        dispatch(filterListings())
+    }
+}
+// end Reset filter listings
