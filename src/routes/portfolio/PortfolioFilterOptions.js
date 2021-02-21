@@ -19,7 +19,7 @@ function PortfolioFilterOptions(){
 
     return (
         <div className="filter-options">
-            <h3>Filter by Tag:</h3>
+            <h3>Filter by Tag</h3>
             <div className="filter-container">
                 {portfolioTags.map((tag) => (
                     // Slight copy of Tag.js, but needed for more extensibility and 

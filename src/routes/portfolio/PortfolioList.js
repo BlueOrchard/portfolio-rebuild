@@ -19,13 +19,15 @@ function PortfolioList(){
                 <h1>My Portfolio</h1>
                 <p>Here's a collection of my previous works</p>
             </div>
-            <div className="filter-options">
-                <PortfolioFilterOptions />
-            </div>
-            <div className="all-posts">
-                {posts.map(post => (
-                    <SinglePost key={post.id} postData={post} />
-                ))}
+            <div className="portfolio-grid">
+                <div className="filter-options">
+                    <PortfolioFilterOptions />
+                </div>
+                <div className="all-posts">
+                    {posts.map(post => (
+                        <SinglePost key={post.id} postData={post} />
+                    ))}
+                </div>
             </div>
         </div>
     )
