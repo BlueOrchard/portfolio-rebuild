@@ -3,11 +3,53 @@
         background: $gray-700;
         padding: 20px;
         color: $gray-50;
+        text-align: center;
+        border-top: 5px solid $gray-800;
+
+        .logo{
+            font-size: 2rem;
+        }
+
+        .smaller{
+            font-size: 0.7rem;
+        }
+
+        .japanese-caption{
+            font-size: 0.75rem;
+            margin-top: 20px;
+
+            .english{
+                font-style: italic;
+            }
+        }
     }
 
     .bottom-footer{
         background: $gray-800;
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .outbound-links{
+        display: flex;
+
+        .link{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $gray-500;
+            transition: 0.25s all;
+
+            &:hover{
+                color: $gray-50;
+            }
+
+            i{
+                font-size: 2rem;
+            }
+        }
     }
 
     .nav-links{
