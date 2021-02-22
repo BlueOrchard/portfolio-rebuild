@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link, useParams } from 'react-router-dom'
 import Image from '../../common/Image'
 import Tag from '../../common/Tag'
@@ -51,7 +52,9 @@ function PortfolioSingle(){
                             </div>
                             <div className="tab-selector">
                                 <span onClick={() => setTab("DESCRIPTION")} className={activeTab == "DESCRIPTION" ? "active" : ""}>Description</span>
-                                <span onClick={() => setTab("MEDIA")} className={activeTab == "MEDIA" ? "active" : ""}>Media</span>
+                                {singlePost.acf.image_gallery &&
+                                    <span onClick={() => setTab("MEDIA")} className={activeTab == "MEDIA" ? "active" : ""}>Media</span>
+                                }
                             </div>
                             <div className="tab-content">
                                 {activeTab == "DESCRIPTION" &&
@@ -59,9 +62,11 @@ function PortfolioSingle(){
                                         <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
                                     </div>
                                 }
-                                {activeTab == "MEDIA" &&
+                                {activeTab == "MEDIA" && singlePost.acf.image_gallery &&
                                     <div className="media">
-                                        Media Placeholder
+                                        {singlePost.acf.image_gallery.map((image) => (
+                                            <LazyLoadImage src={image.url} effect="opacity" directLink={true} />
+                                        ))}
                                     </div>
                                 }
                             </div>
