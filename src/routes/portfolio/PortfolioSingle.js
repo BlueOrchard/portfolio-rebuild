@@ -17,6 +17,10 @@ function PortfolioSingle(){
         getSinglePost()
     }, [])
 
+    function setTab(tab){
+        setactiveTab(tab)
+    }
+
     return(
         <div className="page-component single-page">
             {Object.entries(singlePost).length > 0 &&
@@ -26,7 +30,7 @@ function PortfolioSingle(){
                     </div>
                     <div className="inner-grid">
                         <div className="sidebar-information">
-                            <Image mediaID={singlePost.featured_media} size="medium" />
+                            <Image mediaID={singlePost.featured_media} size="full" />
                             <div className="tags">
                                 {singlePost.tags && singlePost.tags.map((tag) => (
                                     <Tag key={tag} tagID={tag} />
@@ -46,16 +50,20 @@ function PortfolioSingle(){
                                 }
                             </div>
                             <div className="tab-selector">
-                                <span className={activeTab == "DESCRIPTION" ? "active" : ""}>Description</span>
-                                <span>Media</span>
+                                <span onClick={() => setTab("DESCRIPTION")} className={activeTab == "DESCRIPTION" ? "active" : ""}>Description</span>
+                                <span onClick={() => setTab("MEDIA")} className={activeTab == "MEDIA" ? "active" : ""}>Media</span>
                             </div>
                             <div className="tab-content">
-                                <div className="description">
-                                    <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
-                                </div>
-                                <div className="gallery">
-
-                                </div>
+                                {activeTab == "DESCRIPTION" &&
+                                    <div className="description">
+                                        <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
+                                    </div>
+                                }
+                                {activeTab == "MEDIA" &&
+                                    <div className="media">
+                                        Media Placeholder
+                                    </div>
+                                }
                             </div>
                             
                         </div>
