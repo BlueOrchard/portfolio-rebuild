@@ -174,9 +174,6 @@
 
 .inner-tag{
     .single-tag{
-        // background: $lightBlue-500;
-        // border: 1px solid $lightBlue-600;
-        // color: #FFF;
         background: $gray-200;
         color: $gray-400;
         line-height: 1;
@@ -402,8 +399,8 @@
                 width: 100%;
                 height: 100%;
                 opacity: 0.5;
-                filter: blur(3px);
-                transform: scale(1.05);
+                filter: blur(10px);
+                transform: scale(1.29);
             }
         }
     }
