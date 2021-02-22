@@ -1,27 +1,14 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
+import Image from '../../common/Image'
 import Tag from '../../common/Tag'
 
 function SinglePost(props){
     const singlePost = props.postData
-    const [media, setMedia] = useState("")
-
-    useEffect(() => {
-        async function getMediaInfo(){
-            const imageData = await axios.get("https://api.richey.tech/wp-json/wp/v2/media/" + singlePost.featured_media)
-            setMedia(imageData.data.media_details.sizes.medium.source_url)
-        }
-        getMediaInfo()
-    }, [])
 
     return(
         <Link to={"/portfolio/" + singlePost.slug} className="single-post">
             <div className="thumbnail">
-                <LazyLoadImage 
-                    src={media}
-                    effect="opacity" />
+                <Image mediaID={singlePost.featured_media} size="medium"/>
             </div>
             <div className="title">
                 <h3>{singlePost.title.rendered}</h3>
