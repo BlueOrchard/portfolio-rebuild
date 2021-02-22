@@ -1,6 +1,7 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Loading from './Loading'
 
 function Media(props){
     const mediaID = props.mediaID

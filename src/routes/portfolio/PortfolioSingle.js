@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link, useParams } from 'react-router-dom'
 import Image from '../../common/Image'
+import Loading from '../../common/Loading'
 import Tag from '../../common/Tag'
 
 function PortfolioSingle(){
@@ -11,6 +12,7 @@ function PortfolioSingle(){
     const [activeTab, setactiveTab] = useState("DESCRIPTION")
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         async function getSinglePost(){
             const singlePostRequest = await axios.get('https://api.richey.tech/wp-json/wp/v2/posts?slug=' + params.slug)
             setsinglePost(singlePostRequest.data[0])
@@ -76,6 +78,9 @@ function PortfolioSingle(){
                         </div>
                     </div>
                 </div>
+            }
+            {Object.entries(singlePost).length <= 0 &&
+                <Loading />
             }
         </div>
     )

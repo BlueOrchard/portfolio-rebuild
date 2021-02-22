@@ -14,14 +14,19 @@ import Contact from './routes/contact/Contact'
 
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchTagsAsyncGet } from './store/actions'
+import { fetchTagsAsyncGet, fetchPostsAsyncGet } from './store/actions'
 
 function App(){
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchTagsAsyncGet())
+        dispatch(fetchPostsAsyncGet())
     }, [dispatch])
+
+    function scrollToTop(){
+        window.scrollTo(0, 0)
+    }
 
     return (
         <Switch>

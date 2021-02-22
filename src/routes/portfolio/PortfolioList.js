@@ -1,17 +1,10 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchPostsAsyncGet } from '../../store/actions'
+import { useSelector } from 'react-redux'
 import PortfolioFilterOptions from './PortfolioFilterOptions'
 
 import SinglePost from './PortfolioListSinglePost'
 
 function PortfolioList(){
-    const dispatch = useDispatch()
     const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
-
-    useEffect(() => {
-        dispatch(fetchPostsAsyncGet())
-    }, [dispatch])
 
     return (
         <div className="page-component portfolio-list">
@@ -24,7 +17,10 @@ function PortfolioList(){
                     <PortfolioFilterOptions />
                 </div>
                 <div className="all-posts">
-                    {posts.map(post => (
+                    {Object.entries(posts).length <= 0 &&
+                        <div className="no-results">No results found.</div>
+                    }
+                    {Object.entries(posts).length > 0 && posts.map(post => (
                         <SinglePost key={post.id} postData={post} />
                     ))}
                 </div>
