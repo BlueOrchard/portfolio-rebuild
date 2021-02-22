@@ -8,8 +8,8 @@
 # testing
 /coverage
 
-# production
-/build
+# production // commenting out for GitHub pages purposes
+# /build
 
 # misc
 .DS_Store
