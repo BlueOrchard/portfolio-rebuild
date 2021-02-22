@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import background from './heroimg.jpg'
 import OnVisible from 'react-on-visible'
 import { Link } from 'react-router-dom'
+import ConfidenceBar from './ConfidenceBar';
 
 function Home() {
   const [wordCount, setWordCount] = useState(0);
@@ -41,11 +42,28 @@ function Home() {
 
       <OnVisible className="stats">
         <h1>About Me</h1>
-        <p>I am a multidisciplinary programmer capable of picking up new concepts fairly quickly. I primarily work in the web development space, employing modern technologies and frontend frameworks such as Vue, React, Redux along with backend frameworks such as Laravel, Express, and headless WordPress.</p>
-        {/* Semantic HTML5, CSS3 + Sass, Vue JS, React JS, Laravel, Express */}
+        <p>I am a multidisciplinary programmer capable of picking up new concepts fairly quickly. I primarily work in the web development space, employing modern technologies and frontend frameworks such as Vue and React along with backend frameworks such as Laravel, Express, and headless WordPress.</p>
+        <div className="bar-holder">
+          <ConfidenceBar icon="fab fa-vuejs" name="Vue JS" value="95" />
+          <ConfidenceBar icon="fab fa-vuejs" name="VueX" value="95" />
+          <br />
+          <ConfidenceBar icon="fab fa-react" name="React JS" value="95" />
+          <ConfidenceBar icon="fab fa-react" name="MobX" value="85" />
+          <ConfidenceBar icon="fab fa-react" name="Redux" value="80" />
+          <br />
+          <ConfidenceBar icon="fab fa-laravel" name="Laravel" value="85" />
+          <ConfidenceBar icon="fab fa-node" name="Express" value="80" />
+          <ConfidenceBar icon="fab fa-wordpress" name="Headless WordPress" value="80" />
+        </div>
 
         <p>In addition, I am also a Microsoft Certified Professional and specialize in configuring Windows 7 and Windows 10 computers. I also regularly work in Linux environments with CentOS and Ubuntu distros for web server administration.</p>
         {/* hardware config/troubleshooting, software config/troubleshooting, server administration, networking */}
+        <div className="bar-holder">
+          <ConfidenceBar name="Hardware Configuration" value="95" />
+          <ConfidenceBar name="Software Configuration" value="85" />
+          <ConfidenceBar name="Server Administration" value="85" />
+          <ConfidenceBar name="Networking" value="70" />
+        </div>
       </OnVisible>
 
       <OnVisible className="projects">

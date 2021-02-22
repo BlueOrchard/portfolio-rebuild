@@ -17,6 +17,9 @@ function Footer(){
                     <a className="link" target="_blank" href="https://github.com/BlueOrchard">
                         <i className="fab fa-github"></i>
                     </a>
+                    <a className="link" target="_blank" href="https://www.linkedin.com/in/joseph-richey-342444145/">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
                 </div>
                 <div className="right-links">
                     <NavLinks />
