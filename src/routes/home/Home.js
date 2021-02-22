@@ -30,6 +30,11 @@ function Home() {
           <p>My Name is Joseph</p>
           <p>I'm <b>{`{ ${wordList[wordCount]} }`}</b></p>
         </div>
+
+        <div className="scroll-down">
+          Scroll Down
+          <i className="fas fa-chevron-down"></i>
+        </div>
       </div>
     </div>
   );
