@@ -7,6 +7,7 @@ import Tag from '../../common/Tag'
 function PortfolioSingle(){
     const params = useParams()
     const [singlePost, setsinglePost] = useState({})
+    const [activeTab, setactiveTab] = useState("DESCRIPTION")
 
     useEffect(() => {
         async function getSinglePost(){
@@ -23,21 +24,41 @@ function PortfolioSingle(){
                     <div className="header-image">
                         <Image mediaID={singlePost.featured_media} size="full" />
                     </div>
-                    <div className="sidebar-information">
-                        <Image mediaID={singlePost.featured_media} size="medium" />
-                        {singlePost.tags && singlePost.tags.map((tag) => (
-                            <Tag key={tag} tagID={tag} />
-                        ))}
-                        <Link to="/contact">Contact Me</Link>
-                    </div>
-                    <div className="main-content">
-                        <div className="header-single">
-                            <h1>{singlePost.title.rendered}</h1>
-                            {singlePost.acf.url &&
-                                <a target="_blank" href={singlePost.acf.url}>Visit Website</a>
-                            }
+                    <div className="inner-grid">
+                        <div className="sidebar-information">
+                            <Image mediaID={singlePost.featured_media} size="medium" />
+                            <div className="tags">
+                                {singlePost.tags && singlePost.tags.map((tag) => (
+                                    <Tag key={tag} tagID={tag} />
+                                ))}
+                            </div>
+                            <Link className="contact-button" to="/contact">
+                                Contact Me <i className="fas fa-paper-plane"></i>
+                            </Link>
                         </div>
-                        <p dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></p>
+                        <div className="main-content">
+                            <div className="header-single">
+                                <h1>{singlePost.title.rendered}</h1>
+                                {singlePost.acf.url &&
+                                    <a className="visit-website" target="_blank" href={singlePost.acf.url}>
+                                        Visit Website <i className="fas fa-external-link-alt"></i>
+                                    </a>
+                                }
+                            </div>
+                            <div className="tab-selector">
+                                <span className={activeTab == "DESCRIPTION" ? "active" : ""}>Description</span>
+                                <span>Media</span>
+                            </div>
+                            <div className="tab-content">
+                                <div className="description">
+                                    <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
+                                </div>
+                                <div className="gallery">
+
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             }

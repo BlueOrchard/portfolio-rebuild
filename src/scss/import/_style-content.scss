@@ -376,8 +376,9 @@
 }
 
 .single-page{
-    .post-fetched{
+    .inner-grid{
         display: grid;
+        padding: 0 20px;
         grid-template:
             "a a" auto
             "b c" auto / 300px auto
@@ -408,10 +409,86 @@
 
     .sidebar-information{
         grid-area: b;
+        padding: 10px;
+        margin-top: -40px;
+        position: relative;
+        background: #FFF;
+        border-radius: 5px 5px 0 0;
+
+        .tags{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .contact-button{
+            display: block;
+            text-align: center;
+            background: $lightBlue-600;
+            color: #FFF;
+            padding: 10px;
+            border-radius: 5px;
+            transition: 0.25s all;
+            margin-top: 10px;
+
+            &:hover{
+                background: $lightBlue-500;
+            }
+        }
     }
 
     .main-content{
         grid-area: c;
+        padding: 0 20px;
+
+        .header-single{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h1{
+                color: $gray-600;
+            }
+
+            .visit-website{
+                background: $lightBlue-600;
+                color: #FFF;
+                padding: 10px 30px;
+                border-radius: 5px;
+                transition: 0.25s all;
+
+                &:hover{
+                    background: $lightBlue-500;
+                }
+            }
+        }
+
+        .tab-selector{
+            border-bottom: 1px solid $gray-200;
+            display: flex;
+
+            span{
+                border-bottom: 4px solid #FFF;
+                cursor: pointer;
+                transition: 0.25s all;
+                display: block;
+                padding: 5px 20px;
+                font-size: 0.9rem;
+
+                &.active{
+                    border-bottom: 4px solid $lightBlue-500;
+
+                    &:hover{
+                        border-bottom: 4px solid $lightBlue-500;
+                    }
+                }
+
+                &:hover{
+                    border-bottom: 4px solid $lightBlue-300;
+                }
+            }
+        }
     }
 }
 
