@@ -3,12 +3,15 @@ import background from './heroimg.jpg'
 import OnVisible from 'react-on-visible'
 import { Link } from 'react-router-dom'
 import ConfidenceBar from './ConfidenceBar';
+import { useSelector } from 'react-redux'
+import SinglePost from '../../common/SinglePost';
 
 function Home() {
   const [wordCount, setWordCount] = useState(0);
   const [wordList] = useState([
     "a Web Developer", "a System Administrator", "an IT Specialist", "a Video Game Enthusiast"
   ])
+  const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,7 +60,6 @@ function Home() {
         </div>
 
         <p>In addition, I am also a Microsoft Certified Professional and specialize in configuring Windows 7 and Windows 10 computers. I also regularly work in Linux environments with CentOS and Ubuntu distros for web server administration.</p>
-        {/* hardware config/troubleshooting, software config/troubleshooting, server administration, networking */}
         <div className="bar-holder">
           <ConfidenceBar name="Hardware Configuration" value="95" />
           <ConfidenceBar name="Software Configuration" value="85" />
@@ -69,7 +71,9 @@ function Home() {
       <OnVisible className="projects">
         <h1>Most Recent Projects</h1>
         <div className="homepage-projects">
-
+          {Object.entries(posts).length > 0 && posts.slice(0, 3).map(post => (
+            <SinglePost key={post.id} postData={post} />
+          ))}
         </div>
         <Link to="/portfolio">View More</Link>
       </OnVisible>

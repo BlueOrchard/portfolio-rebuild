@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import PortfolioFilterOptions from './PortfolioFilterOptions'
-
-import SinglePost from './PortfolioListSinglePost'
+import SinglePost from '../../common/SinglePost'
 
 function PortfolioList(){
     const posts = useSelector(state => state.portfolioCatalog.filteredPosts)

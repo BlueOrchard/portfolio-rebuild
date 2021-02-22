@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import Image from '../../common/Image'
-import Tag from '../../common/Tag'
+import Image from './Image'
+import Tag from './Tag'
 
 function SinglePost(props){
     const singlePost = props.postData
