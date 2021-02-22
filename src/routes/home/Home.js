@@ -9,7 +9,7 @@ import SinglePost from '../../common/SinglePost';
 function Home() {
   const [wordCount, setWordCount] = useState(0);
   const [wordList] = useState([
-    "a Web Developer", "a System Administrator", "an IT Specialist", "a Video Game Enthusiast"
+    "a Web Developer", "a System Administrator", "an IT Specialist", "a Video Game Enthusiast", "a Car Enthusiast"
   ])
   const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
 
@@ -70,12 +70,13 @@ function Home() {
 
       <OnVisible className="projects">
         <h1>Most Recent Projects</h1>
+        <p>Here are a few of my current projects.</p>
         <div className="homepage-projects">
           {Object.entries(posts).length > 0 && posts.slice(0, 3).map(post => (
             <SinglePost key={post.id} postData={post} />
           ))}
         </div>
-        <Link to="/portfolio">View More</Link>
+        <Link className="view-more" to="/portfolio">View More <i className="fas fa-chevron-right"></i></Link>
       </OnVisible>
     </div>
   );
