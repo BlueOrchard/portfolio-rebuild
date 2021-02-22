@@ -176,6 +176,24 @@
     }
 }
 
+.projects{
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: 1s all;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    &.visible{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    h1{
+        font-weight: normal;
+    }
+}
+
 .portfolio-header{
     grid-area: a;
     text-align: center;

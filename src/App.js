@@ -20,13 +20,9 @@ function App(){
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchTagsAsyncGet())
         dispatch(fetchPostsAsyncGet())
+        dispatch(fetchTagsAsyncGet())
     }, [dispatch])
-
-    function scrollToTop(){
-        window.scrollTo(0, 0)
-    }
 
     return (
         <Switch>
