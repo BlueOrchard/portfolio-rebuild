@@ -31,15 +31,17 @@ function PortfolioSingle(){
                     </div>
                     <div className="inner-grid">
                         <div className="sidebar-information">
-                            <Image mediaID={singlePost.featured_media} size="full" />
-                            <div className="tags">
-                                {singlePost.tags && singlePost.tags.map((tag) => (
-                                    <Tag key={tag} tagID={tag} />
-                                ))}
+                            <div className="inner-sidebar">
+                                <Image mediaID={singlePost.featured_media} size="full" />
+                                <div className="tags">
+                                    {singlePost.tags && singlePost.tags.map((tag) => (
+                                        <Tag key={tag} tagID={tag} />
+                                    ))}
+                                </div>
+                                <Link className="contact-button" to="/contact">
+                                    Contact Me <i className="fas fa-paper-plane"></i>
+                                </Link>
                             </div>
-                            <Link className="contact-button" to="/contact">
-                                Contact Me <i className="fas fa-paper-plane"></i>
-                            </Link>
                         </div>
                         <div className="main-content">
                             <div className="header-single">
@@ -64,8 +66,8 @@ function PortfolioSingle(){
                                 }
                                 {activeTab == "MEDIA" && singlePost.acf.image_gallery &&
                                     <div className="media">
-                                        {singlePost.acf.image_gallery.map((image) => (
-                                            <LazyLoadImage src={image.url} effect="opacity" directLink={true} />
+                                        {singlePost.acf.image_gallery.map((image, key) => (
+                                            <LazyLoadImage key={key} src={image.url} effect="opacity"/>
                                         ))}
                                     </div>
                                 }
