@@ -24,6 +24,7 @@ function PortfolioSingle(){
                         <Image mediaID={singlePost.featured_media} size="full" />
                     </div>
                     <div className="sidebar-information">
+                        <Image mediaID={singlePost.featured_media} size="medium" />
                         {singlePost.tags && singlePost.tags.map((tag) => (
                             <Tag key={tag} tagID={tag} />
                         ))}
