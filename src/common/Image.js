@@ -9,11 +9,18 @@ function Media(props){
 
     useEffect(() => {
         async function getMediaInfo(){
-            const imageData = await axios.get("https://api.richey.tech/wp-json/wp/v2/media/" + mediaID)
-            setMedia(imageData.data.media_details.sizes[size].source_url)
+            if(mediaID){
+                await axios.get("https://api.richey.tech/wp-json/wp/v2/media/" + mediaID)
+                    .then((imageData) => {
+                        setMedia(imageData.data.media_details.sizes[size].source_url)
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+            }
         }
         getMediaInfo()
-    }, [])
+    }, [mediaID])
 
     return(
         <LazyLoadImage 

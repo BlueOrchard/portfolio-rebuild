@@ -17,7 +17,7 @@ function SinglePost(props){
                 <p dangerouslySetInnerHTML={{__html: singlePost.excerpt.rendered}}></p>
             </div>
             <div className="tags">
-                {singlePost.tags.map((tag) => (
+                {singlePost.tags && singlePost.tags.map((tag) => (
                     <Tag key={tag} tagID={tag} />
                 ))}
             </div>
