@@ -10,7 +10,7 @@ function Tag(props){
         setTagData(portfolioTags.filter(tag => {
             return tag.tagID === tagPropID
         }))
-    }, [])
+    })
 
     return(
         <div className="inner-tag">
