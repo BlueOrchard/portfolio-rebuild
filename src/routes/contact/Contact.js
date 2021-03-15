@@ -46,7 +46,7 @@ function Contact(){
                     <input type="text" value={formData.name} onChange={setName} />
 
                     <p>Email Address</p>
-                    <input type="text" value={formData.email} onChange={setEmail} />
+                    <input type="email" value={formData.email} onChange={setEmail} />
 
                     <p>Message</p>
                     <textarea value={formData.message} onChange={setMessage} />

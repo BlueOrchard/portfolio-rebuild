@@ -24,7 +24,7 @@ function Home() {
       })
     }, 500);
     return () => clearInterval(interval);
-  })
+  }, [wordCount])
 
   return (
     <div className="page-component">
