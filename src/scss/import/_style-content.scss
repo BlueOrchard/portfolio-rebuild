@@ -598,6 +598,45 @@
         transition: 0.25s all;
         padding: 10px;
 
+        &:after{
+            content: "";
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            font-style: normal;
+            text-rendering: auto;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        &.SUBMITTING{
+            &:hover{
+                transform: none;
+                box-shadow: none;
+                cursor: default;
+            }
+
+            &:after{
+                content: "\f1ce";
+                animation: 1s linear infinite rotate360;
+            }
+        }
+
+        &.SUBMITTED{
+            border: 1px solid $green-600;
+            background: $green-500;
+
+            &:hover{
+                background: $green-500;
+                transform: none;
+                box-shadow: none;
+                cursor: default;
+            }
+
+            &:after{
+                content: "\f00c";
+            }
+        }
+
         &:hover{
             background: $lightBlue-500;
             transform: translateY(-3px);

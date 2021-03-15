@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react'
  
 function Contact(){
@@ -7,31 +8,29 @@ function Contact(){
         message: ""
     })
 
-    function setName(e){
+    const [submitStatus, setsubmitStatus] = useState("IDLE")
+
+    function setValue(e, field){
+        setsubmitStatus("IDLE")
         setformData({
             ...formData,
-            name: e.target.value,
+            [field]: e.target.value
         })
     }
-
-    function setEmail(e){
-        setformData({
-            ...formData,
-            email: e.target.value,
-        })
-    }
-
-    function setMessage(e){
-        setformData({
-            ...formData,
-            message: e.target.value,
-        })
-    }
-
 
     function submitMessage(e){
         e.preventDefault();
-        console.log("submitting...")
+
+        setsubmitStatus("SUBMITTING")
+
+        axios.post('https://api.richey.tech/wp-json/gf/v2/forms/1/submissions', {
+            "input_1" : formData.name,
+            "input_2" : formData.email,
+            "input_3" : formData.message
+        })
+        .then((data) => {
+            setsubmitStatus("SUBMITTED")
+        })
     }
 
     return(
@@ -43,14 +42,15 @@ function Contact(){
             <div className="contact-form">
                 <form onSubmit={submitMessage} >
                     <p>Name</p>
-                    <input type="text" value={formData.name} onChange={setName} />
+                    <input type="text" value={formData.name} onChange={(e) => setValue(e, "name")} />
 
                     <p>Email Address</p>
-                    <input type="email" value={formData.email} onChange={setEmail} />
+                    <input type="email" value={formData.email} onChange={(e) => setValue(e, "email")} />
 
                     <p>Message</p>
-                    <textarea value={formData.message} onChange={setMessage} />
-                    <button type="submit">Submit</button>
+                    <textarea value={formData.message} onChange={(e) => setValue(e, "message")} />
+
+                    <button type="submit" disabled={submitStatus != "IDLE"} className={submitStatus}>Submit</button>
                 </form>
             </div>
         </div>
