@@ -1,6 +1,6 @@
 export const pageTransition = {
     type: "tween",
-    duration: 0.3
+    duration: 0.25
 }
 
 export const pageSlide = {
@@ -17,3 +17,18 @@ export const pageSlide = {
         y: "-1rem",
     },
   }
+
+export const popIn = {
+    initial: {
+        opacity: 0,
+        y: "-10px"
+    },
+    in: {
+        opacity: 1,
+        y: 0
+    },
+    out: {
+        opacity: 0,
+        y: "-10px"
+    }
+}

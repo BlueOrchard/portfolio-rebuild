@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import PortfolioFilterOptions from './PortfolioFilterOptions'
 import SinglePost from '../../common/SinglePost'
 import { useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 
 function PortfolioList(){
     const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
@@ -25,9 +26,11 @@ function PortfolioList(){
                     {Object.entries(posts).length <= 0 &&
                         <div className="no-results">No results found.</div>
                     }
-                    {Object.entries(posts).length > 0 && posts.map(post => (
-                        <SinglePost key={post.id} postData={post} />
-                    ))}
+                    <AnimatePresence>
+                        {Object.entries(posts).length > 0 && posts.map(post => (
+                            <SinglePost key={post.id} postData={post} />
+                        ))}
+                    </AnimatePresence>
                 </div>
             </div>
         </div>
