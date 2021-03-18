@@ -691,10 +691,6 @@
 
 .single-page{
     .post-loading{
-        .header-image{
-            background: linear-gradient(-45deg, $lightBlue-700, $lightBlue-400);
-        }
-
         .inner-grid{
             .sidebar-information{
                 .tags{
@@ -756,7 +752,8 @@
             overflow: hidden;
             width: 100%;
             display: block;
-            background: linear-gradient(45deg, $lightBlue-400,  $lightBlue-600);
+            background: $warmGray-800;
+            // background: linear-gradient(45deg, $lightBlue-400,  $lightBlue-600);
 
             img{
                 display: block;
