@@ -45,7 +45,7 @@ function Image(props){
             {!loaded &&
                 <div className="image-loader"></div>
             }
-            {inView && 
+            {(inView || loaded) &&
                 <img 
                     className={loaded ? "loaded" : "loading"}
                     onLoad={setImageLoaded}
