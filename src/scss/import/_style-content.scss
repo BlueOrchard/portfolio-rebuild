@@ -691,6 +691,10 @@
 
 .single-page{
     .post-loading{
+        .header-image{
+            background: $warmGray-800;
+        }
+
         .inner-grid{
             .sidebar-information{
                 .tags{
