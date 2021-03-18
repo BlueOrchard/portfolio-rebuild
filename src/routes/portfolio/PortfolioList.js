@@ -11,7 +11,8 @@ function PortfolioList(){
     }, [])
 
     return (
-        <div className="page-component portfolio-list">
+        <div 
+            className="page-component portfolio-list">
             <div className="portfolio-header">
                 <h1>My Portfolio</h1>
                 <p>Here's a collection of my previous works</p>

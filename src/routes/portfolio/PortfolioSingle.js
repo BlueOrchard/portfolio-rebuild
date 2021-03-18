@@ -1,9 +1,11 @@
 import axios from 'axios'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Image from '../../common/Image'
 import Tag from '../../common/Tag'
 import PortfolioSkeleton from './PortfolioSkeleton'
+import { pageSlide, pageTransition } from '../../util/animations'
 
 function PortfolioSingle(){
     const params = useParams()
@@ -70,21 +72,37 @@ function PortfolioSingle(){
                                 }
                             </div>
                             <div className="tab-content">
-                                {activeTab == "DESCRIPTION" &&
-                                    <div className="description">
-                                        <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
-                                    </div>
-                                }
-                                {activeTab == "MEDIA" && singlePost.acf.image_gallery &&
-                                    <div className="media">
-                                        {singlePost.acf.image_gallery.map((image, key) => (
-                                            <Image 
-                                                key={key}
-                                                directSource={image.url}
-                                                defaultHeight={200} />
-                                        ))}
-                                    </div>
-                                }
+                                <AnimatePresence exitBeforeEnter>
+                                    {activeTab == "DESCRIPTION" &&
+                                        <motion.div 
+                                            key={1}
+                                            initial="initial"
+                                            animate="in"
+                                            exit="out"
+                                            variants={pageSlide}
+                                            transition={pageTransition}
+                                            className="description">
+                                                <div dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></div>
+                                        </motion.div>
+                                    }
+                                    {activeTab == "MEDIA" && singlePost.acf.image_gallery &&
+                                        <motion.div 
+                                            key={2}
+                                            initial="initial"
+                                            animate="in"
+                                            exit="out"
+                                            variants={pageSlide}
+                                            transition={pageTransition}
+                                            className="media">
+                                                {singlePost.acf.image_gallery.map((image, key) => (
+                                                    <Image 
+                                                        key={key}
+                                                        directSource={image.url}
+                                                        defaultHeight={200} />
+                                                ))}
+                                        </motion.div>
+                                    }
+                                </AnimatePresence>
                             </div>
                             
                         </div>

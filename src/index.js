@@ -15,7 +15,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 // Import Redux Store
 import { Provider } from 'react-redux'
 import store from './store/index'
-import ScrollToTop from './common/ScrollToTop';
+import ScrollToTop from './util/scrollToTop';
 
 ReactDOM.render(
   <div className="portfolio">

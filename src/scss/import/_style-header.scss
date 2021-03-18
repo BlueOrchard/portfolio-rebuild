@@ -12,6 +12,7 @@
     align-items: center;
     box-shadow: $box-shadow;
     position: relative;
+    z-index: 3;
 
     .logo{
         font-weight: 400;
