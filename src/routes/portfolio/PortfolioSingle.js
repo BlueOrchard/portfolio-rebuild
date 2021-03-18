@@ -15,7 +15,6 @@ function PortfolioSingle(){
     useEffect(() => {
         document.title = "Loading..."
 
-        window.scrollTo(0, 0)
         async function getSinglePost(){
             const singlePostRequest = await axios.get('https://api.richey.tech/wp-json/wp/v2/posts?slug=' + params.slug)
             setsinglePost(singlePostRequest.data[0])
