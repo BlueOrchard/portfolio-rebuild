@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 import Image from '../../common/Image'
 import Loading from '../../common/Loading'
 import Tag from '../../common/Tag'
+import PortfolioSkeleton from './PortfolioSkeleton'
 
 function PortfolioSingle(){
     const params = useParams()
@@ -12,10 +13,14 @@ function PortfolioSingle(){
     const [activeTab, setactiveTab] = useState("DESCRIPTION")
 
     useEffect(() => {
+        document.title = "Loading..."
+
         window.scrollTo(0, 0)
         async function getSinglePost(){
             const singlePostRequest = await axios.get('https://api.richey.tech/wp-json/wp/v2/posts?slug=' + params.slug)
             setsinglePost(singlePostRequest.data[0])
+
+            document.title = singlePostRequest.data[0].title.rendered
         }
         getSinglePost()
     }, [])
@@ -26,6 +31,9 @@ function PortfolioSingle(){
 
     return(
         <div className="page-component single-page">
+            {Object.entries(singlePost).length <= 0 && 
+                <PortfolioSkeleton />
+            }
             {Object.entries(singlePost).length > 0 &&
                 <div className="post-fetched">
                     <div className="header-image">
@@ -34,7 +42,11 @@ function PortfolioSingle(){
                     <div className="inner-grid">
                         <div className="sidebar-information">
                             <div className="inner-sidebar">
-                                <Image mediaID={singlePost.featured_media} size="full" />
+                                <Image 
+                                    mediaID={singlePost.featured_media} 
+                                    size="full" 
+                                    defaultHeight={160}
+                                    />
                                 <div className="tags">
                                     {singlePost.tags && singlePost.tags.map((tag) => (
                                         <Tag key={tag} tagID={tag} />
@@ -69,7 +81,10 @@ function PortfolioSingle(){
                                 {activeTab == "MEDIA" && singlePost.acf.image_gallery &&
                                     <div className="media">
                                         {singlePost.acf.image_gallery.map((image, key) => (
-                                            <LazyLoadImage key={key} src={image.url} effect="opacity"/>
+                                            <Image 
+                                                key={key}
+                                                directSource={image.url}
+                                                defaultHeight={200} />
                                         ))}
                                     </div>
                                 }
@@ -78,9 +93,6 @@ function PortfolioSingle(){
                         </div>
                     </div>
                 </div>
-            }
-            {Object.entries(singlePost).length <= 0 &&
-                <Loading />
             }
         </div>
     )

@@ -14,6 +14,7 @@ function Home() {
   const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
 
   useEffect(() => {
+    document.title = "Home"
     const interval = setInterval(() => {
       setWordCount(wordCount => {
         if(wordCount >= wordList.length - 1){

@@ -6,6 +6,44 @@
     display: none!important;
 }
 
+.lazy-image{
+    background: $warmGray-50;
+    position: relative;
+    width: 100%;
+
+    .image-loader{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &:before{
+            display: block;
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 4px solid $lightBlue-100;
+            border-top: 4px solid $lightBlue-600;
+            border-radius: 50px;
+            animation: 1s linear infinite rotate360;
+        }
+    }
+
+    img{
+        opacity: 0;
+        transition: 0.25s all;
+        display: block;
+        position: relative;
+        z-index: 1;
+
+        &.loaded{
+            opacity: 1;
+        }
+    }
+}
+
 .loading-page{
     height: calc(100vh - 60px);
     display: flex;
@@ -355,7 +393,6 @@
         .thumbnail{
             width: 100%;
             height: 150px;
-            background: $lightBlue-500;
             position: relative;
             display: flex;
             align-items: center;
@@ -364,15 +401,16 @@
             border-radius: 5px;
             overflow: hidden;
 
-            &:before{
-                display: block;
-                content: "";
-                width: 50px;
-                height: 50px;
-                border: 4px solid $lightBlue-50;
-                border-top: 4px solid $lightBlue-600;
-                border-radius: 50px;
-                animation: 1s linear infinite rotate360;
+            >div{
+                width: 100%;
+                height: 100%;
+
+                img{
+                    display: block;
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             span{
@@ -592,7 +630,7 @@
     button{
         width: 50%;
         margin-top: 30px;
-        background: $lightBlue-400;
+        background: $lightBlue-500;
         border: 1px solid $lightBlue-500;
         color: $lightBlue-50;
         transition: 0.25s all;
@@ -638,14 +676,58 @@
         }
 
         &:hover{
-            background: $lightBlue-500;
-            transform: translateY(-3px);
-            box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.075);
+            background: $lightBlue-400;
         }
     }
 }
 
 .single-page{
+    .post-loading{
+        .header-image{
+            background: linear-gradient(-45deg, $lightBlue-700, $lightBlue-400);
+        }
+
+        .inner-grid{
+            .sidebar-information{
+                .tags{
+                    margin-top: 10px;
+
+                    >span{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        justify-content: center;
+
+                        span{
+                            width: 25%;
+                            margin: 0 3px 6px;
+                        }
+                    }
+                }
+            }
+
+            .main-content{
+                .header-single{
+                    h1{
+                        width: 100%;
+                    }
+                }
+
+                .tab-selector{
+                    span{
+                        border: 0;
+                        display: flex;
+
+                        span{
+                            width: 100px;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .inner-grid{
         display: grid;
         padding: 0 10px;
@@ -659,13 +741,14 @@
 
     .header-image{
         grid-area: a;
-
-        span{
         height: 300px;
-        overflow: hidden;
-        width: 100%;
-        display: block;
-        background: linear-gradient(45deg, $lightBlue-400,  $lightBlue-600);
+
+        >div{
+            height: 300px;
+            overflow: hidden;
+            width: 100%;
+            display: block;
+            background: linear-gradient(45deg, $lightBlue-400,  $lightBlue-600);
 
             img{
                 display: block;
@@ -686,6 +769,7 @@
         position: relative;
         background: #FFF;
         border-radius: 5px 5px 0 0;
+        z-index: 3;
 
         .inner-sidebar{
             position: sticky;
@@ -783,7 +867,7 @@
                 padding: 30px 0;
                 min-height: 600px;
                 
-                span{
+                >div{
                     display: flex!important;
                     text-align: center;
                     margin:  0 0 30px;

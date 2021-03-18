@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
  
 function Contact(){
     const [formData, setformData] = useState({
@@ -9,6 +9,10 @@ function Contact(){
     })
 
     const [submitStatus, setsubmitStatus] = useState("IDLE")
+
+    useEffect(() => {
+        document.title = "Contact Me"
+    }, [])
 
     function setValue(e, field){
         setsubmitStatus("IDLE")

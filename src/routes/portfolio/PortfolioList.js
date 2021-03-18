@@ -1,9 +1,14 @@
 import { useSelector } from 'react-redux'
 import PortfolioFilterOptions from './PortfolioFilterOptions'
 import SinglePost from '../../common/SinglePost'
+import { useEffect } from 'react'
 
 function PortfolioList(){
     const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
+
+    useEffect(() => {
+        document.title = "Portfolio"
+    }, [])
 
     return (
         <div className="page-component portfolio-list">
