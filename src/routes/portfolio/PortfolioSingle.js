@@ -1,9 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link, useParams } from 'react-router-dom'
 import Image from '../../common/Image'
-import Loading from '../../common/Loading'
 import Tag from '../../common/Tag'
 import PortfolioSkeleton from './PortfolioSkeleton'
 
