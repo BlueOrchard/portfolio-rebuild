@@ -1,4 +1,7 @@
 .footer{
+    position: relative;
+    z-index: 3;
+
     .top-footer{
         background: $gray-700;
         padding: 20px;
