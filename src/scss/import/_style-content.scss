@@ -839,9 +839,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0 0;
 
             h1{
                 color: $gray-600;
+                margin: 0;
             }
 
             .visit-website{
@@ -895,6 +897,14 @@
 
             h3{
                 margin: 20px 0 10px;
+            }
+
+            hr{
+                border: 0;
+                height: 1px;
+                width: 80%;
+                margin: 30px auto;
+                background: $warmGray-200;
             }
 
             .media{
