@@ -46,6 +46,13 @@ function PortfolioSingle(){
                                     size="full" 
                                     defaultHeight={160}
                                     />
+                                <div className="breadcrumb">
+                                    <Link to="/">Home</Link>
+                                    »
+                                    <Link to="/portfolio">Portfolio</Link>
+                                    »
+                                    <span>{singlePost.title.rendered}</span>
+                                </div>
                                 <div className="tags">
                                     {singlePost.tags && singlePost.tags.map((tag) => (
                                         <Tag key={tag} tagID={tag} />

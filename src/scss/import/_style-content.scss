@@ -75,16 +75,23 @@
     height: calc(100vh - 60px);
     margin-bottom: 30px;
 
-    img{
-        opacity: 0.8;
-        display: block;
-        object-fit: cover;
+    .lazy-image{
+        background: linear-gradient(45deg, $lightBlue-600, $lightBlue-800);
         width: 100%;
         height: 100%;
+        opacity: 0.8;
+
+        img{
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .hero-text{
         position: absolute;
+        z-index: 1;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -697,6 +704,14 @@
 
         .inner-grid{
             .sidebar-information{
+                .breadcrumb{
+                    margin: 20px 0 0;
+                    span{
+                        display: block;
+                        margin: 0;
+                    }
+                }
+
                 .tags{
                     margin-top: 10px;
 
@@ -781,6 +796,16 @@
         .inner-sidebar{
             position: sticky;
             top: 20px;
+        }
+
+        .breadcrumb{
+            margin: 10px 0 3px;
+            text-align: center;
+            font-size: 0.8rem;
+
+            a, span{
+                margin: 0 5px;
+            }
         }
 
         .tags{

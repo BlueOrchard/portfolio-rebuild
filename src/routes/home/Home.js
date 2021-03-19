@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import ConfidenceBar from './ConfidenceBar';
 import { useSelector } from 'react-redux'
 import SinglePost from '../../common/SinglePost';
+import Image from '../../common/Image'
 
 function Home() {
   const [wordCount, setWordCount] = useState(0);
@@ -30,7 +31,7 @@ function Home() {
   return (
     <div className="page-component">
       <div className="hero-part">
-        <img src={background} />
+        <Image directSource={background} />
         
         <div className="hero-text">
           <h1>Greetings</h1>

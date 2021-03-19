@@ -4,12 +4,13 @@ function PortfolioSkeleton(){
     return (
         <div className="post-loading">
             <SkeletonTheme>
-                <div className="header-image">
-
-                </div>
+                <div className="header-image"></div>
                 <div className="inner-grid">
                     <div className="sidebar-information">
                         <Skeleton height={165} />
+                        <div className="breadcrumb">
+                            <span><Skeleton /></span>
+                        </div>
                         <div className="tags">
                             <Skeleton count={8} height={20} />
                         </div>
