@@ -12,7 +12,7 @@ function Home() {
   const [wordList] = useState([
     "a Web Developer", "a System Administrator", "an IT Specialist", "a Video Game Enthusiast", "a Car Enthusiast"
   ])
-  const posts = useSelector(state => state.portfolioCatalog.filteredPosts)
+  const posts = useSelector(state => state.portfolioCatalog.posts)
 
   useEffect(() => {
     document.title = "Home"
