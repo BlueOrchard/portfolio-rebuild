@@ -907,7 +907,7 @@
             z-index: 2;
 
             span{
-                border-bottom: 4px solid $bodyBG;
+                border-bottom: 4px solid transparent;
                 cursor: pointer;
                 transition: 0.25s all;
                 display: block;
