@@ -18,7 +18,7 @@ function SinglePost(props){
         >
             <Link to={"/portfolio/" + singlePost.slug}>
                 <div className="thumbnail">
-                    <Image mediaID={singlePost.featured_media} size="medium"/>
+                    <Image mediaID={singlePost.featured_media} size="full"/>
                 </div>
                 <div className="content">
                     <div className="title">
@@ -27,11 +27,12 @@ function SinglePost(props){
                     <div className="description">
                         <p dangerouslySetInnerHTML={{__html: singlePost.excerpt.rendered}}></p>
                     </div>
-                </div>
-                <div className="tags">
-                    {singlePost.tags && singlePost.tags.map((tag) => (
-                        <Tag key={tag} tagID={tag} />
-                    ))}
+
+                    <div className="tags">
+                        {singlePost.tags && singlePost.tags.map((tag) => (
+                            <Tag key={tag} tagID={tag} />
+                        ))}
+                    </div>
                 </div>
             </Link>
         </motion.div>

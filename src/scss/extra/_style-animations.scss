@@ -1,0 +1,25 @@
+.fade {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+}
+
+.fade-enter {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 300ms;
+}

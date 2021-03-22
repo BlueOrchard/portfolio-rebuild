@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MobileMenu from './MobileMenu'
 import NavLinks from './NavLinks'
 
 function Header(){
@@ -13,6 +14,8 @@ function Header(){
             <div className="right-side">
                 <NavLinks />
             </div>
+
+            <MobileMenu />
         </header>
     )
 }
