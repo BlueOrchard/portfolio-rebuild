@@ -21,7 +21,7 @@ function MobileMenu(){
             </div>
 
             <div className="links" onClick={() => toggleMenu()}>
-                <NavLinks/>
+                {/* <NavLinks/> */}
             </div>
         </div>
     )
