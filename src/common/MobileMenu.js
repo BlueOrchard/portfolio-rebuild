@@ -1,5 +1,7 @@
 import NavLinks from "./NavLinks";
 import { useState } from 'react'
+import { AnimatePresence, motion } from "framer-motion";
+import { pageTransition, popIn } from "../util/animations";
 
 function MobileMenu(){
     const [showMenu, setshowMenu] = useState(false)
@@ -20,9 +22,20 @@ function MobileMenu(){
                 }
             </div>
 
-            <div className="links" onClick={() => toggleMenu()}>
-                {/* <NavLinks/> */}
-            </div>
+            <AnimatePresence>
+                {showMenu &&
+                    <motion.div 
+                        initial="initial"
+                        animate="in"
+                        exit="out"
+                        variants={popIn}
+                        transition={pageTransition}
+                        className="links" 
+                        onClick={() => toggleMenu()}>
+                            <NavLinks/>
+                    </motion.div>
+                }
+            </AnimatePresence>
         </div>
     )
 }

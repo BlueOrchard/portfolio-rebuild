@@ -133,6 +133,10 @@
     }
 }
 
+.stats, .projects{
+    padding: 0 10px;
+}
+
 .stats{
     opacity: 0;
     transform: translateY(-40px);
@@ -467,6 +471,11 @@
         background: #FFF;
         overflow: hidden;
 
+        a{
+            display: block;
+            height: 100%;
+        }
+
         &:hover{
             color: $lightBlue-600;
             box-shadow: 0 8px 15px rgba(0,0,0,.2);
@@ -601,9 +610,15 @@
             }
         }
 
-        &.react{
+        &.react, &.redux{
             &:before{
                 content: "\f41b"
+            }
+        }
+
+        &.vue, &.vuex{
+            &:before{
+                content: "\f41f";
             }
         }
 
@@ -838,11 +853,11 @@
                 }
 
                 .tab-selector{
-                    span{
+                    a, span{
                         border: 0;
                         display: flex;
 
-                        span{
+                        a, span{
                             width: 100px;
                             margin-right: 20px;
                         }
@@ -977,7 +992,7 @@
             background: $bodyBG;
             z-index: 2;
 
-            span{
+            a, span{
                 border-bottom: 4px solid transparent;
                 cursor: pointer;
                 transition: 0.25s all;

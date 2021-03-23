@@ -77,6 +77,9 @@ function PortfolioSingle(){
                                 {singlePost.acf.image_gallery &&
                                     <span onClick={() => setTab("MEDIA")} className={activeTab == "MEDIA" ? "active" : ""}>Media</span>
                                 }
+                                {singlePost.acf.github_url &&
+                                    <a target="_blank" href={singlePost.acf.github_url}>Source Code <i className="fas fa-code-branch"></i></a>
+                                }
                             </div>
                             <div className="tab-content">
                                 <AnimatePresence exitBeforeEnter>

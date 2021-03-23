@@ -23,8 +23,81 @@
         display: block!important;
     }
 
-    .right-side{
+    .header{
+        .right-side{
+            display: none;
+        }
+    }
+
+    .mobile-menu{
+        .hamburger-menu{
+            display: block;
+        }
+    }
+
+    .hero-part{
+        .hero-text{
+            h1{
+                font-size: 4rem;
+            }
+        }
+    }
+
+    .projects{
+        .homepage-projects{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .portfolio-grid{
+        display: block;
+    }
+
+    .filter-options{
         display: none;
+    }
+
+    .all-posts{
+        padding: 20px 10px 0;
+        grid-template-columns: 1fr;
+    }
+
+    .single-page{
+        .inner-grid{
+            grid-template:
+                "a a" auto
+                "b b" auto
+                "c c" auto;
+        }
+
+        .main-content{
+            .header-single{
+                margin-top: 40px;
+                margin-bottom: 10px;
+
+                h1{
+                    font-size: 1.5rem;
+                }
+
+                .visit-website{
+                    display: block;
+                    text-align: center;
+                    padding: 5px 10px;
+                }
+            }
+
+            .tab-selector{
+                span, a{
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+
+    .contact-form{
+        input{
+            width: 100%;
+        }
     }
 
     /* Mobile Navigation Items have been moved to "prefab/style-mobile-nav" */ 
