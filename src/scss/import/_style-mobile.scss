@@ -98,6 +98,11 @@
         input{
             width: 100%;
         }
+
+        button{
+            display: block;
+            margin: 30px auto 0;
+        }
     }
 
     /* Mobile Navigation Items have been moved to "prefab/style-mobile-nav" */ 
