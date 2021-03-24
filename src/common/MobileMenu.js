@@ -2,6 +2,7 @@ import NavLinks from "./NavLinks";
 import { useState } from 'react'
 import { AnimatePresence, motion } from "framer-motion";
 import { pageTransition, popIn } from "../util/animations";
+import Hamburger from 'hamburger-react'
 
 function MobileMenu(){
     const [showMenu, setshowMenu] = useState(false)
@@ -13,13 +14,7 @@ function MobileMenu(){
     return(
         <div className={"mobile-menu " + (showMenu ? "visible" : "hidden")}>
             <div className="hamburger-menu" onClick={() => toggleMenu()}>
-                {showMenu &&
-                    <i className="fas fa-times"></i>
-                }
-
-                {!showMenu &&
-                    <i className="fas fa-bars"></i>
-                }
+                <Hamburger toggled={showMenu} size={25} />
             </div>
 
             <AnimatePresence>

@@ -65,6 +65,14 @@
     }
 
     .single-page{
+        .header-image{
+            height: 130px;
+
+            >div{
+                height: 130px;
+            }
+        }
+
         .inner-grid{
             grid-template:
                 "a a" auto
