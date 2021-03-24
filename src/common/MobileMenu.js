@@ -14,7 +14,7 @@ function MobileMenu(){
     return(
         <div className={"mobile-menu " + (showMenu ? "visible" : "hidden")}>
             <div className="hamburger-menu" onClick={() => toggleMenu()}>
-                <Hamburger toggled={showMenu} size={25} />
+                <Hamburger toggled={showMenu} toggle={setshowMenu} size={25} />
             </div>
 
             <AnimatePresence>
