@@ -36,6 +36,8 @@
     }
 
     .hero-part{
+        max-height: 700px;
+
         .hero-text{
             h1{
                 font-size: 4rem;
@@ -89,6 +91,15 @@
             .tab-selector{
                 span, a{
                     padding: 10px 15px;
+                }
+            }
+
+            .tab-content{
+                .media{
+                    >div{
+                        display: block!important;
+                        min-height: auto!important;
+                    }
                 }
             }
         }
