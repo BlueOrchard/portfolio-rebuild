@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import background from './heroimg.jpg'
 import OnVisible from 'react-on-visible'
 import { Link } from 'react-router-dom'
-import ConfidenceBar from './ConfidenceBar';
 import { useSelector } from 'react-redux'
 import SinglePost from '../../common/SinglePost';
 import Image from '../../common/Image'
