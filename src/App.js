@@ -21,7 +21,7 @@ function App(){
     useEffect(() => {
         dispatch(fetchPostsAsyncGet())
         dispatch(fetchTagsAsyncGet())
-    }, [dispatch])
+    }, [])
 
     return (
         <AnimatePresence exitBeforeEnter>
