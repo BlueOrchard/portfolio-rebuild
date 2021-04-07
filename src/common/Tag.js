@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 function Tag(props){
     const tagPropID = props.tagID
@@ -21,6 +22,10 @@ function Tag(props){
             )) }
         </div>
     )
+}
+
+Tag.propTypes = {
+    tagID: PropTypes.number
 }
 
 export default Tag;

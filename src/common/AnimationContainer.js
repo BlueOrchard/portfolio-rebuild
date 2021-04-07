@@ -1,3 +1,5 @@
+// DEPRECATED: NOT IN USE
+
 import {motion} from 'framer-motion'
 import {popIn, pageSlide, pageTransition} from '../util/animations'
 import {useState, useEffect} from 'react'

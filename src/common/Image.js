@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useInView } from 'react-intersection-observer'
+import PropTypes from 'prop-types'
 
 function Image(props){
     const mediaID = props.mediaID
@@ -54,6 +55,13 @@ function Image(props){
             }
         </div>
     )
+}
+
+Image.propTypes = {
+    mediaID: PropTypes.number,
+    size: PropTypes.string,
+    directSource: PropTypes.string,
+    containerHeight: PropTypes.string
 }
 
 export default Image

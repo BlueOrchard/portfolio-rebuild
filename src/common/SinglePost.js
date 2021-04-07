@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Image from './Image'
 import Tag from './Tag'
 import {pageTransition, popIn} from '../util/animations'
+import PropTypes from 'prop-types'
 
 function SinglePost(props){
     const singlePost = props.postData
@@ -38,6 +39,10 @@ function SinglePost(props){
         </motion.div>
        
     )
+}
+
+SinglePost.propTypes = {
+    postData: PropTypes.object
 }
 
 export default SinglePost

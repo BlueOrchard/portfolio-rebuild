@@ -1,3 +1,5 @@
+// DEPRECATED: NOT IN USE
+
 function ConfidenceBar(props){
     const name = props.name
     const value = props.value
