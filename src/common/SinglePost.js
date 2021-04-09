@@ -13,6 +13,7 @@ function SinglePost(props){
             initial="initial"
             animate="in"
             exit="out"
+            layout
             variants={popIn}
             transition={pageTransition}
             className="single-post"
