@@ -676,7 +676,47 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 5px;
-        grid-row-gap: 5px
+        grid-row-gap: 5px;
+
+        .github{
+            width: 100%;
+            display: grid;
+            grid-column: span 2;
+            grid-template-columns: 50px auto;
+            align-items: center;
+            padding: 10px 20px;
+            background: $gray-100;
+            border: 1px solid $gray-200;
+            color: $gray-400;
+            border-radius: 5px;
+            margin-top: 20px;
+
+            .icon{
+                i{
+                    font-size: 40px;
+                }
+            }
+
+            .text{
+                font-size: 0.9rem;
+                
+                a{
+                    color: $gray-400;
+                    font-weight: bold;
+                    transition: 0.25s all;
+
+                    &:hover{
+                        color: $gray-500;
+                    }
+
+                    i{
+                        display: inline-block;
+                        font-size: 0.8rem;
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
     }
 
     .single-tag-filter{

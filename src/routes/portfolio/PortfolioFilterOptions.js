@@ -40,6 +40,15 @@ function PortfolioFilterOptions(){
                     className="reset-filter">
                     <i className="fas fa-undo"></i> Reset Filter
                 </div>
+
+                <div className="github">
+                    <div className="icon">
+                        <i className="fab fa-github"></i>
+                    </div>
+                    <div className="text">
+                        Check out my <a href="https://github.com/BlueOrchard" target="_blank">GitHub <i className="fas fa-external-link-alt"></i></a> for more ongoing and miscellaneous projects!
+                    </div>
+                </div>
             </div>
         </div>
     )
