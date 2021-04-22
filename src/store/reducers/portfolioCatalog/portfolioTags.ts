@@ -1,6 +1,6 @@
 import { FETCH_TAGS, RESET_FILTER, SELECT_FILTER } from '../../actionTypes'
 
-const portfolioTags = (state: PostStateTypes, action: any) => {
+const portfolioTags = (state: PostStateTypes, action: BasicActionTypes) => {
     switch (action.type) {
         case FETCH_TAGS:
             return {

@@ -34,31 +34,31 @@ export const resetFilterAndListings = () => {
 }
 
 // Actions
-export const fetchPosts = (data: object) => ({
+export const fetchPosts = (data: object): BasicActionTypes => ({
     type: FETCH_POSTS,
     payload: {
         data
     }
 })
 
-export const fetchTags = (data: object) => ({
+export const fetchTags = (data: object): BasicActionTypes => ({
     type: FETCH_TAGS,
     payload: {
         data
     }
 })
 
-export const selectFilter = (data: number) => ({
+export const selectFilter = (data: number): BasicActionTypes => ({
     type: SELECT_FILTER,
     payload: {
         data
     }
 })
 
-export const filterListings = () => ({
+export const filterListings = (): BasicActionTypes => ({
     type: FILTER_POSTS,
 })
 
-export const resetFilter = () => ({
+export const resetFilter = (): BasicActionTypes => ({
     type: RESET_FILTER
 })
