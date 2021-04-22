@@ -1,6 +1,7 @@
+import { Reducer } from 'redux'
 import { FETCH_POSTS, FILTER_POSTS } from '../../actionTypes'
 
-const portfolioListings: any = (state: PostStateTypes, action: BasicActionTypes) => {
+const portfolioListings: Reducer = (state: PostStateTypes, action: BasicActionTypes) => {
     switch(action.type){
         // Map initial state to the posts
         case FETCH_POSTS: {

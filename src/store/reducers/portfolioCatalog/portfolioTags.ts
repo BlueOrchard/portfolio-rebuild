@@ -1,6 +1,7 @@
+import { Reducer } from 'redux'
 import { FETCH_TAGS, RESET_FILTER, SELECT_FILTER } from '../../actionTypes'
 
-const portfolioTags = (state: PostStateTypes, action: BasicActionTypes) => {
+const portfolioTags: Reducer = (state: PostStateTypes, action: BasicActionTypes) => {
     switch (action.type) {
         case FETCH_TAGS:
             return {

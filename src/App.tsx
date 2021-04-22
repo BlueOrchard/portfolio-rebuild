@@ -7,15 +7,16 @@ import {
 
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchTagsAsyncGet, fetchPostsAsyncGet } from './store/actions'
+import { fetchTagsAsyncGet, fetchPostsAsyncGet, fetchPosts, selectFilter } from './store/actions'
 import { AnimatePresence, motion } from "framer-motion"
 import { pageSlide, pageTransition } from './util/animations'
 
 import routes from './routes'
+import { useAppDispatch } from "./store";
 
 
 function App(){
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const location = useLocation()
 
     useEffect(() => {
