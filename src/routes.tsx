@@ -4,8 +4,15 @@ import Page404 from './routes/404/404'
 import Contact from './routes/contact/Contact'
 import PortfolioList from "./routes/portfolio/PortfolioList";
 import PortfolioSingle from "./routes/portfolio/PortfolioSingle";
+import { FC } from 'react';
 
-const routes = [
+type RouteTypes = {
+    name: string,
+    path: string,
+    Component: FC
+}[]
+
+const routes : RouteTypes = [
     {
         name: "Homepage",
         path: "/",

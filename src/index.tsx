@@ -18,19 +18,19 @@ import store from './store/index'
 import ScrollToTop from './util/scrollToTop';
 
 ReactDOM.render(
-  <div className="portfolio">
-    <Provider store={store}>
-      <Router>
-        <ScrollToTop />
-        <Header />
+    <div className="portfolio">
+        <Provider store={store}>
+            <Router>
+                <ScrollToTop />
+                <Header />
 
-        <div className="main-content">
-          <App />
-        </div>
+                <div className="main-content">
+                    <App />
+                </div>
 
-        <Footer />
-      </Router>
-    </Provider>
-  </div>,
-  document.getElementById('root')
+                <Footer />
+            </Router>
+        </Provider>
+    </div>,
+    document.getElementById('root')
 );
