@@ -18,9 +18,9 @@ function Home() {
         const interval = setInterval(() => {
         setWordCount(wordCount => {
             if(wordCount >= wordList.length - 1){
-            return 0
+                return 0
             } else{ 
-            return wordCount + 1
+                return wordCount + 1
             }
         })
         }, 1000);
