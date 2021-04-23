@@ -1,10 +1,11 @@
 import { Reducer } from 'redux'
-import { FETCH_POSTS, FILTER_POSTS } from '../../actionTypes'
+import { PostStateTypes } from '.'
+import { BasicActionTypes } from '../../actions'
+import { AT } from '../../actionTypes'
 
 const portfolioListings: Reducer = (state: PostStateTypes, action: BasicActionTypes) => {
     switch(action.type){
-        // Map initial state to the posts
-        case FETCH_POSTS: {
+        case AT.FETCH_POSTS: {
             return {
                 ...state,
                 posts: action.payload.data,
@@ -12,7 +13,7 @@ const portfolioListings: Reducer = (state: PostStateTypes, action: BasicActionTy
             }
         }
         // Filter is selected in portfolioTags.js reducer
-        case FILTER_POSTS: {
+        case AT.FILTER_POSTS: {
             let filteredPostsLocal = state.posts
             const tagFilter = state.selectedTags
 

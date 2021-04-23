@@ -1,6 +1,26 @@
-import { FETCH_POSTS, FETCH_TAGS, FILTER_POSTS, RESET_FILTER, SELECT_FILTER } from './actionTypes'
+import { AT } from './actionTypes'
 import axios from 'axios'
 import { Dispatch } from 'redux'
+
+// Action Types
+interface BasicActionObject {
+    type: 
+        | AT.FETCH_POSTS 
+        | AT.FETCH_TAGS 
+        | AT.SELECT_FILTER
+    payload: any
+}
+
+interface BasicActionNull {
+    type: 
+        | AT.RESET_FILTER 
+        | AT.FILTER_POSTS
+}
+
+export type BasicActionTypes = 
+    | BasicActionObject
+    | BasicActionNull
+
 
 // Thunk events
 export const fetchPostsAsyncGet = () => {
@@ -34,31 +54,31 @@ export const resetFilterAndListings = () => {
 }
 
 // Actions
-export const fetchPosts = (data: object): BasicActionTypes => ({
-    type: FETCH_POSTS,
+export const fetchPosts = (data: object): BasicActionObject => ({
+    type: AT.FETCH_POSTS,
     payload: {
         data
     }
 })
 
-export const fetchTags = (data: object): BasicActionTypes => ({
-    type: FETCH_TAGS,
+export const fetchTags = (data: object): BasicActionObject => ({
+    type: AT.FETCH_TAGS,
     payload: {
         data
     }
 })
 
-export const selectFilter = (data: number): BasicActionTypes => ({
-    type: SELECT_FILTER,
+export const selectFilter = (data: number): BasicActionObject => ({
+    type: AT.SELECT_FILTER,
     payload: {
         data
     }
 })
 
-export const filterListings = (): BasicActionTypes => ({
-    type: FILTER_POSTS,
+export const filterListings = (): BasicActionNull => ({
+    type: AT.FILTER_POSTS,
 })
 
-export const resetFilter = (): BasicActionTypes => ({
-    type: RESET_FILTER
+export const resetFilter = (): BasicActionNull => ({
+    type: AT.RESET_FILTER
 })
