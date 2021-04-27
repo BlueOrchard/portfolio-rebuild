@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
-import { createStore, applyMiddleware, compose, Dispatch, Action } from "redux"
+import { createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import thunk, { ThunkMiddleware } from 'redux-thunk'
 import rootReducer from "./reducers"
