@@ -29,9 +29,6 @@ function Image(props){
 
                         setMedia(image.source_url)
                     })
-                    .catch((error) => {
-                        console.log(error)
-                    })
             }
         }
         getMediaInfo()
@@ -42,12 +39,15 @@ function Image(props){
     }
 
     return(
-        <div className="lazy-image" ref={ref} style={{minHeight: containerHeight}}>
+        <div className={`lazy-image ${mediaID}`} ref={ref} style={{minHeight: containerHeight}}>
             {!loaded &&
-                <div className="image-loader"></div>
+                <div 
+                    data-testid="loader"
+                    className="image-loader"></div>
             }
             {(inView || loaded) &&
                 <img 
+                    data-testid="loaded-image"
                     className={loaded ? "loaded" : "loading"}
                     onLoad={setImageLoaded}
                     src={media} 
