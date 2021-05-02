@@ -1,90 +1,88 @@
-import React, { useEffect, useState } from 'react'
-import background from './heroimg.jpg'
-import OnVisible from 'react-on-visible'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import SinglePost from '../../common/SinglePost';
-import Image from '../../common/Image'
+import React, { createRef, useEffect } from 'react'
+import lottie from 'lottie-web'
+import Stars from './Stars'
+import HomeText from './HomeText'
+
+import earthJSON from './40402-earth.json'
+import moonJSON from './40441-moon.json'
+import marsJSON from './40399-mars.json'
+import neptuneJSON from './40400-neptune.json'
+
+import dig from './dig.png'
+import dug from './dug.png'
 
 function Home() {
-    const [wordCount, setWordCount] = useState(0);
-    const [wordList] = useState([
-        "a Web Developer", "a System Administrator", "an IT Specialist", "a Video Game Enthusiast", "a Car Enthusiast"
-    ])
-    const posts = useSelector(state => state.portfolioCatalog.posts)
+    const Earth = createRef();
+    const Mars = createRef();
+    const Neptune = createRef();
+    const Moon = createRef();
+
+    const animationOptions = {
+        renderer: "svg",
+        loop: true,
+        autoplay: true
+    }
 
     useEffect(() => {
         document.title = "Home"
-        const interval = setInterval(() => {
-        setWordCount(wordCount => {
-            if(wordCount >= wordList.length - 1){
-                return 0
-            } else{ 
-                return wordCount + 1
-            }
+
+        const earth = lottie.loadAnimation({
+            container: Earth.current,
+            animationData: earthJSON,
+            ...animationOptions
         })
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [wordCount])
+
+        const moon = lottie.loadAnimation({
+            container: Moon.current,
+            animationData: moonJSON,
+            ...animationOptions
+        })
+
+        const mars = lottie.loadAnimation({
+            container: Mars.current,
+            animationData: marsJSON,
+            ...animationOptions
+        })
+
+        const neptune = lottie.loadAnimation({
+            container: Neptune.current,
+            animationData: neptuneJSON,
+            ...animationOptions
+        })
+
+        return(() => {
+            earth.destroy()
+            moon.destroy()
+            mars.destroy()
+            neptune.destroy()
+        })
+    }, [])
 
   return (
-    <div className="page-component">
-        <div className="hero-part">
-            <Image directSource={background} />
-            
-            <div className="hero-text">
-                <h1>Greetings</h1>
-                <p>My Name is Joseph.</p>
-                <p>I'm <b>{`{ ${wordList[wordCount]} }`}</b></p>
-            </div>
+    <div className="page-component homepage-inner">
+        <HomeText />
 
-            <div className="scroll-down">
-                Scroll Down
-                <i className="fas fa-chevron-down"></i>
+        <div className="earth-orbit">
+            <div className="planet earth" ref={Earth}></div>
+
+            <div className="moon-orbit">
+                <div className="planet moon" ref={Moon}></div>
             </div>
         </div>
 
-        <OnVisible className="stats">
-            <span>Web Development</span>
-            <h1>Websites and Web Applications</h1>
-            <p>Hello! I'm Joseph. I'm a software engineer based in Jacksonville, FL. I primarily develop applications for the web. My goal is to build intuitive and modern applications that provide a streamlined experience for users.</p>
-            <p>I am a multidisciplinary programmer capable of picking up new concepts fairly quickly. Here are a few technologies I've worked with recently:</p>
-            <ul>
-                <li>Javascript (ES6+)</li>
-                <li>React</li>
-                <li>Vue</li>
-                <li>Laravel</li>
-                <li>HTML & (S)CSS</li>
-                <li>Headless Wordpress</li>
-            </ul>
-        </OnVisible>
+        <div className="planet mars" ref={Mars}></div>
+        <div className="planet neptune" ref={Neptune}></div>
+        
+        <div className="stars">
+            <Stars count={100} />
+        </div>
 
-        <OnVisible className="stats">
-            <span>Information Technology</span>
-            <h1>Computers and System Administration</h1>
-            <p>In addition, I am also a Microsoft Certified Professional and specialize in configuring Windows 7 and Windows 10 computers. I also regularly work in Linux environments with CentOS and Ubuntu distros for web server administration.</p>
-            <p>My proficiencies in Information Technology include:</p>
-            <ul>
-                <li>Windows 10</li>
-                <li>Ubuntu & Red Hat Linux</li>
-                <li>Hardware Configuration</li>
-                <li>Software Configuration</li>
-                <li>Server Administration</li>
-                <li>Networking</li>
-            </ul>
-        </OnVisible>
-
-        <OnVisible className="projects">
-            <span>Recent Projects</span>
-            <h1>Some Things I've Made</h1>
-            <p>Here are a few of my current projects:</p>
-            <div className="homepage-projects">
-                {Object.entries(posts).length > 0 && posts.slice(0, 3).map(post => (
-                <SinglePost key={post.id} postData={post} />
-                ))}
-            </div>
-            <Link className="view-more" to="/portfolio">View More <i className="fas fa-chevron-right"></i></Link>
-        </OnVisible>
+        <div className="dig-dug">
+            <img src={dig} />
+            <img src={dug} />
+            <img src={dug} />
+            <img src={dug} />
+        </div>
     </div>
   );
 }

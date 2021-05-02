@@ -45,6 +45,24 @@
         }
     }
 
+    .homepage-inner{
+        .earth-orbit{
+            width: 80vw;
+            top: 3%;
+        }
+
+        .planet{
+            &.mars{
+                width: 50vw;
+            }
+
+            &.neptune{
+                width: 100vw;
+                right: -30%;
+            }
+        }
+    }
+
     .projects{
         .homepage-projects{
             grid-template-columns: 1fr;
