@@ -51,14 +51,20 @@
             top: 3%;
         }
 
+        .moon-orbit{
+            animation: none;
+        }
+
         .planet{
             &.mars{
                 width: 50vw;
+                display: none;
             }
 
             &.neptune{
                 width: 100vw;
                 right: -30%;
+                display: none;
             }
         }
     }

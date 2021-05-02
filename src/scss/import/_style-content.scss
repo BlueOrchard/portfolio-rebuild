@@ -238,7 +238,7 @@
         top: 8%;
         right: -10%;
         width: 40vw;
-        animation: 50s ease-in-out infinite earthMove
+        // animation: 50s ease-in-out infinite earthMove
     }
 
     .moon-orbit{
@@ -288,7 +288,7 @@
 
     .stats, .projects{
         color: #FFF;
-        margin: 200px auto 200px;
+        margin: 50px auto;
         z-index: 4;
         position: relative;
 

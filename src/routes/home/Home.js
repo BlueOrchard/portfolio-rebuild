@@ -17,10 +17,13 @@ function Home() {
     const Neptune = createRef();
     const Moon = createRef();
 
+    const windowWidth = window.innerWidth;
+    const breakpoint = 640;
+
     const animationOptions = {
         renderer: "svg",
         loop: true,
-        autoplay: true
+        autoplay: true,
     }
 
     useEffect(() => {
@@ -50,6 +53,13 @@ function Home() {
             ...animationOptions
         })
 
+        if(windowWidth < breakpoint){
+            earth.pause()
+            moon.pause()
+            mars.pause()
+            neptune.pause()
+        }
+
         return(() => {
             earth.destroy()
             moon.destroy()
@@ -74,7 +84,7 @@ function Home() {
         <div className="planet neptune" ref={Neptune}></div>
         
         <div className="stars">
-            <Stars count={100} />
+            <Stars count={50} />
         </div>
 
         <div className="dig-dug">
